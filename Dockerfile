@@ -16,6 +16,8 @@ RUN apt-get update && \
 
 COPY ./config/redis.conf /etc/redis/redis.conf
 
+RUN ln -sf /dev/stdout /var/log/redis/redis-server.log
+
 EXPOSE 6380 6379
 
 ENTRYPOINT  ["/usr/bin/redis-server", "/etc/redis/redis.conf"]
