@@ -14,6 +14,8 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
+RUN mkdir /tmp/db
+
 COPY ./config/redis.conf /etc/redis/redis.conf
 
 RUN ln -sf /dev/stdout /var/log/redis/redis-server.log
