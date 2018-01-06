@@ -14,7 +14,8 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /tmp/db
+RUN mkdir -p /tmp/db
+RUN chmod -R 755 /tmp/db
 
 COPY ./config/redis.conf /etc/redis/redis.conf
 
